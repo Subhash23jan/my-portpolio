@@ -119,7 +119,7 @@ const Hero = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              src="/public/subhash.jpg"
+              src="/subhash.jpg"
               alt="Subhash D"
               className="relative rounded-2xl shadow-2xl w-full"
             />
