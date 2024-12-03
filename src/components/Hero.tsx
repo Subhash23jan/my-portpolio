@@ -88,7 +88,7 @@ const Hero = () => {
               {[
                 { icon: <Github size={24} />, href: 'https://github.com/subhash23jan' },
                 { icon: <Linkedin size={24} />, href: 'https://www.linkedin.com/in/subhash-d' },
-                { icon: <Mail size={24} />, href: 'mailto:subhash613d@gmail.com' }
+                { icon: <Mail size={24} />, href: 'mailto:subhash613d@gmail.com' },
               ].map((item, index) => (
                 <motion.a
                   key={index}
@@ -119,7 +119,7 @@ const Hero = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              src="/subhash.jpg"
+              src="/my_image.jpg"
               alt="Subhash D"
               className="relative rounded-2xl shadow-2xl w-full"
             />
