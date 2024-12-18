@@ -4,6 +4,16 @@ import { useInView } from 'react-intersection-observer';
 
 const techLifeImages = [
   {
+    url: '/assets/github.png',
+    title: 'Github',
+    description: 'Diving into the developement ".'
+  },
+  {
+    url: '/assets/leetcode.png',
+    title: 'Leetcode',
+    description: 'Newbie in CP'
+  },
+  {
     url: '/assets/first_speech.jpg',
     title: 'First Speech In College',
     description: 'Spoke on the trending topic: "College Dropout".'
@@ -27,12 +37,7 @@ const techLifeImages = [
     url: '/assets/anchoring.jpg',
     title: 'Anchoring for Kannada Club',
     description: 'Hosted events and engaged with the audience.'
-  },
-  // {
-  //   url: '',
-  //   title: 'Project Success',
-  //   description: 'Achieved key milestones in projects.'
-  // }
+  }
 ];
 
 
@@ -62,13 +67,13 @@ const TechLife = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-white mb-4">Tech Life</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Exploring the intersection of technology, innovation, and creative development
+          <h2 className="text-3xl font-bold text-white mb-4 sm:text-xl hover:scale-110">Professional Life In Frames</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto sm:text-xl hover:scale-95">
+            Unfolding the Path of Continuous Learning, Software Engineering, and Innovation
           </p>
         </motion.div>
 
-        <div className="relative h-[500px] mb-12 overflow-hidden rounded-xl">
+        {/* <div className="relative h-[500px] mb-12 overflow-hidden rounded-xl">
           <motion.div
             animate={{ x: `-${currentImageIndex * 100}%` }}
             transition={{ duration: 0.5 }}
@@ -96,7 +101,7 @@ const TechLife = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </div> */}
         
         <motion.div
           ref={ref}

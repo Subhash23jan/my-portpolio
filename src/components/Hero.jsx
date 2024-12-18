@@ -1,15 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Code2, ArrowRight } from 'lucide-react';
+import { SiLeetcode } from "react-icons/si";
+import { MdOutlineDownloading } from "react-icons/md";
+import { Github, Linkedin, Mail, Code2, ArrowRight,ArrowUpCircle } from 'lucide-react';
 
-const AnimatedText = ({ text }) => {
+const AnimatedText = ({ text,staggerCount=1 }) => {
   const letters = Array.from(text);
   
   const container = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.6 }
+      transition: { staggerChildren: staggerCount, delayChildren: 0.6 }
     }
   };
   
@@ -20,7 +22,6 @@ const AnimatedText = ({ text }) => {
       y: 0
     }
   };
-
   return (
     <motion.span
       variants={container}
@@ -51,7 +52,7 @@ const SocialIcon = ({ href, icon: Icon, label }) => (
     rel="noopener noreferrer"
   >
     <Icon className="text-white dark:text-gray-200" size={24} />
-    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs whitespace-nowrap bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-2 py-1 rounded transition-opacity">
+    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs whitespace-nowrap bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-2 py-1 rounded transition-opacity ">
       {label}
     </span>
   </motion.a>
@@ -90,21 +91,26 @@ const Hero = () => {
               className="inline-block px-4 py-2 bg-white/10 dark:bg-gray-800/30 backdrop-blur-lg rounded-full text-sm font-medium mb-6"
             >
               <Code2 className="inline-block w-4 h-4 mr-2" />
-              Full Stack Developer
+              Engineer who has interest in Everything
             </motion.div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Hi, I'm <AnimatedText text="Subhash D" />
             </h1>
 
-            <motion.p 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-xl text-gray-100 dark:text-gray-200 mb-8 leading-relaxed max-w-2xl"
+              className="text-xl text-gray-100 dark:text-gray-200 mb-8 leading-relaxed max-w-2xl font-sans whitespace-pre-wrap text-justify"
             >
-              A dedicated student proficient in DSA, C++, databases, Java, and Flutter, with a strong interest in algorithms, data structures, and Android development.
-            </motion.p>
+              <AnimatedText 
+                staggerCount={0.02}
+                text="I’m an engineering student, 2025 passout, just vibing my way through life. I’m into everything—learning, exploring, messing up, and leveling up every week. Tried out a bunch of tech stacks, can switch to anything new if needed, and solving problems is kinda my thing. Oh, and I have a terrible memory, so don’t expect me to remember much—I’m like a goldfish with a knack for tech. I fail at most things, but hey, that’s how I roll. If something’s cool enough, I can work 6-12 hours straight. See you tomorrow, but trust me, I’ll be way better than today!"
+              />
+            </motion.div>
+
+
             
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -148,10 +154,22 @@ const Hero = () => {
                 label="LinkedIn"
               />
               <SocialIcon 
+                href="https://www.leetcode.com/in/subhash613d"
+                icon={SiLeetcode}
+                label="Leetcode"
+              />
+              <SocialIcon 
                 href="mailto:subhash613d@gmail.com"
                 icon={Mail}
                 label="Email"
               />
+
+              <SocialIcon 
+                href="https://www.linkedin.com/in/subhash-d"
+                icon={MdOutlineDownloading}
+                label="See mY ReSume"
+              />
+              
             </motion.div>
           </motion.div>
 

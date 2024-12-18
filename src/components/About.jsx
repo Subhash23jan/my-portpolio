@@ -51,9 +51,9 @@ const About = () => {
               <div className="relative mb-8">
                 <motion.img
                   initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 0.1, scale: 1 }}
                   viewport={{ once: true }}
-                  src="/profile_pic.jpg"
+                  src="/assets/my_image_pic.jpg"
                   alt="Subhash D"
                   className="rounded-lg shadow-xl w-full max-w-md"
                 />
