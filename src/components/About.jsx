@@ -85,7 +85,7 @@ const About = () => {
                         you consistently push yourself to excel in problem-solving and tackle complex challenges.
                         Your dedication and hard work set you on a trajectory to achieve remarkable success in the tech world!
                         </p>
-                        <p className="text-sm text-gray-500">Prompt for Chatgpt was " Tell me more thing about me " </p>
+                        <p className="text-sm text-gray-500">Prompt for the Chatgpt was " Tell me more things about me " </p>
                       </>
                 )}
                 </div>
