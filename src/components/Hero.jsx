@@ -4,8 +4,8 @@ import { SiLeetcode } from "react-icons/si";
 import { MdOutlineDownloading } from "react-icons/md";
 import { Github, Linkedin, Mail, Code2, ArrowRight,ArrowUpCircle } from 'lucide-react';
 
-const AnimatedText = ({ text,staggerCount=1 }) => {
-  const letters = Array.from(text);
+const AnimatedText = ({ text, staggerCount = 1 }) => {
+  const words = text.split(" "); // Split text into words
   
   const container = {
     hidden: { opacity: 0 },
@@ -22,6 +22,7 @@ const AnimatedText = ({ text,staggerCount=1 }) => {
       y: 0
     }
   };
+
   return (
     <motion.span
       variants={container}
@@ -29,18 +30,19 @@ const AnimatedText = ({ text,staggerCount=1 }) => {
       animate="visible"
       className="inline-block"
     >
-      {letters.map((letter, index) => (
+      {words.map((word, index) => (
         <motion.span
           key={index}
           variants={child}
-          className="inline-block"
+          className="inline-block mr-1" // Add space between words
         >
-          {letter === ' ' ? '\u00A0' : letter}
+          {word}
         </motion.span>
       ))}
     </motion.span>
   );
 };
+
 
 const SocialIcon = ({ href, icon: Icon, label }) => (
   <motion.a
@@ -77,7 +79,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 py-16 relative">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+       <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-0 xl:gap-0">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -102,7 +104,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-xl text-gray-100 dark:text-gray-200 mb-8 leading-relaxed max-w-2xl font-sans whitespace-pre-wrap text-justify"
+              className="text-xl text-gray-100 dark:text-gray-200 mb-8 leading-relaxed max-w-max font-sans whitespace-pre-wrap text-justify"
             >
               <AnimatedText 
                 staggerCount={0.02}
@@ -165,33 +167,32 @@ const Hero = () => {
               />
 
               <SocialIcon 
-                href="https://www.linkedin.com/in/subhash-d"
+                href="https://drive.google.com/file/d/1DEL6n12y1grO2m93sRXuY_6GM0qjMH9m/view?usp=drive_link"
                 icon={MdOutlineDownloading}
                 label="See mY ReSume"
               />
               
             </motion.div>
+            
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex-1 relative max-w-md"
-          >
             <motion.div 
-              animate={{ rotate: [0, 2, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 bg-gradient-to-br from-pink-400 to-purple-600 dark:from-pink-600 dark:to-purple-800 rounded-2xl transform rotate-6"
-            />
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex-1 relative max-w-md mr-5 xl:mr-14 "
+            >
             <motion.img 
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              src="/my_image.jpg"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{scale:1.1,duration:0.5}}
+              viewport={{ once: true }}
+              src="/assets/first_speech.jpg"
               alt="Subhash D"
-              className="relative rounded-2xl shadow-2xl w-full"
+              className="rounded-lg shadow-xl w-4/5 h-4/5 max-w-md m-6"
             />
           </motion.div>
+
         </div>
       </div>
     </div>

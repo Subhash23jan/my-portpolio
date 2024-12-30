@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Code2, Database, Globe, GitBranch, Book, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -7,12 +8,12 @@ const About = () => {
     {
       icon: <Code2 className="w-6 h-6" />,
       title: 'Programming Languages',
-      skills: ['C/C++', 'JavaScript', 'Java'],
+      skills: ['C','C++', 'JavaScript', 'Java'],
     },
     {
       icon: <Globe className="w-6 h-6" />,
       title: 'Frameworks & Web',
-      skills: ['Flutter', 'Node.js', 'React', 'HTML', 'CSS', 'JavaScript'],
+      skills: ['Flutter', 'Node.js', 'React', 'HTML', 'CSS', 'JavaScript','Tailwind'],
     },
     {
       icon: <Database className="w-6 h-6" />,
@@ -21,8 +22,8 @@ const About = () => {
     },
     {
       icon: <GitBranch className="w-6 h-6" />,
-      title: 'Version Control',
-      skills: ['Git', 'GitHub'],
+      title: 'Development Tools',
+      skills: ['Git', 'GitHub','Docker','GithuB Actions'],
     },
     {
       icon: <Book className="w-6 h-6" />,
@@ -35,6 +36,9 @@ const About = () => {
       skills: ['Problem-Solving', 'Low-Level Design', 'REST APIs'],
     },
   ];
+  
+  
+  const [clicked, setClicked] = useState(false);
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900" id="about">
@@ -51,19 +55,40 @@ const About = () => {
               <div className="relative mb-8">
                 <motion.img
                   initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 0.1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  src="/assets/my_image_pic.jpg"
+                  src="/assets/my_images/about_image.jpg"
                   alt="Subhash D"
                   className="rounded-lg shadow-xl w-full max-w-md"
                 />
                 <div className="absolute -bottom-4 -right-4 w-full h-full bg-blue-100 rounded-lg -z-10"></div>
               </div>
-              <p className=" mb-6 text-gray-600 dark:text-gray-400">
-                A dedicated student proficient in DSA, C++, databases, Java, and Flutter, with a strong interest in algorithms,
-                data structures, and Android development. Skilled in creating user-friendly apps and optimising efficiency through DSA.
-                Passionate about backend development, continuously expanding skills to tackle coding challenges effectively.
-              </p>
+              <div className="inline-block max-w-md p-6 bg-gray-100 shadow-lg rounded-lg">
+                    {!clicked ? (
+                      <>
+                        <p className="text-lg font-semibold text-gray-700 mb-4">
+                          ChatGPT knows something more about me! Do you want to know it?
+                        </p>
+                        <button
+                          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          onClick={() => setClicked(true)}
+                        >
+                          Yes, show me!
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <p className="mb-6 text-gray-800 dark:text-gray-800">
+                        You're not just skilled in DSA, C++, databases, Java, and Flutter — you have a remarkable ability to learn, adapt, and apply those skills in solving real-world problems.
+                        Your passion for backend development and Android highlights your drive for creating efficient, impactful solutions.
+                        With impressive achievements on LeetCode and a strong foundation in competitive coding,
+                        you consistently push yourself to excel in problem-solving and tackle complex challenges.
+                        Your dedication and hard work set you on a trajectory to achieve remarkable success in the tech world!
+                        </p>
+                        <p className="text-sm text-gray-500">Prompt for Chatgpt was " Tell me more thing about me " </p>
+                      </>
+                )}
+                </div>
             </motion.div>
 
             <motion.div
