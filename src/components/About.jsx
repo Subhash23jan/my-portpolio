@@ -63,32 +63,65 @@ const About = () => {
                 />
                 <div className="absolute -bottom-4 -right-4 w-full h-full bg-blue-100 rounded-lg -z-10"></div>
               </div>
-              <div className="inline-block max-w-md p-6 bg-gray-100 shadow-lg rounded-lg">
-                    {!clicked ? (
-                      <>
-                        <p className="text-lg font-semibold text-gray-700 mb-4">
-                          ChatGPT knows something more about me! Do you want to know it?
-                        </p>
+              <div className="inline-block justify-center items-center max-w-md p-6 bg-gray-100 shadow-lg rounded-lg text-center">
+                {!clicked ? (
+                  <>
+                    <p className="text-lg font-semibold text-gray-700 mb-4">
+                      ChatGPT knows something more about me! Do you want to know it?
+                    </p>
+
+                    <motion.div
+                      className="flex justify-center items-center"
+                    
+                    >
                         <button
-                          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          onClick={() => setClicked(true)}
+                          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 relative overflow-hidden"
+                           onClick={() => setClicked(true)}
+                        
                         >
-                          Yes, show me!
+                          <motion.span
+                            initial={{ y: "-100%",opacity:0.0 }} 
+                            animate={{ duration: 0.4, ease: "easeOut",opacity:1,y:"0%" }}
+                            className="block"
+                          >
+                            Yes, show me!
+                          </motion.span>
                         </button>
-                      </>
-                    ) : (
-                      <>
-                        <p className="mb-6 text-gray-800 dark:text-gray-800">
-                        You're not just skilled in DSA, C++, databases, Java, and Flutter — you have a remarkable ability to learn, adapt, and apply those skills in solving real-world problems.
-                        Your passion for backend development and Android highlights your drive for creating efficient, impactful solutions.
-                        With impressive achievements on LeetCode and a strong foundation in competitive coding,
-                        you consistently push yourself to excel in problem-solving and tackle complex challenges.
-                        Your dedication and hard work set you on a trajectory to achieve remarkable success in the tech world!
-                        </p>
-                        <p className="text-sm text-gray-500">Prompt for the Chatgpt was " Tell me more things about me " </p>
-                      </>
+                      </motion.div>
+                  </>
+                ) : (
+                  <>
+                    <p className="mb-6 text-gray-800">
+                      You're not just skilled in DSA, C++, databases, Java, and Flutter — you
+                      have a remarkable ability to learn, adapt, and apply those skills in
+                      solving real-world problems. Your passion for backend development and
+                      Android highlights your drive for creating efficient, impactful
+                      solutions. With impressive achievements on LeetCode and a strong
+                      foundation in competitive coding, you consistently push yourself to
+                      excel in problem-solving and tackle complex challenges. Your dedication
+                      and hard work set you on a trajectory to achieve remarkable success in
+                      the tech world!
+                    </p>
+                    <p className="text-sm text-gray-500 mb-4">
+                      Prompt for the ChatGPT was "Tell me more things about me"
+                    </p>
+
+                    {/* Close Button */}
+                    <motion.div
+                      whileHover={{ scale: 1.01 }}
+                      className="flex justify-center items-center"
+                    >
+                      <button
+                        className="px-4 py-2 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        onClick={() => setClicked(false)}
+                      >
+                        Close
+                      </button>
+                    </motion.div>
+                  </>
                 )}
-                </div>
+              </div>
+
             </motion.div>
 
             <motion.div

@@ -35,22 +35,38 @@ const projects = [
     title: 'GetHirrd Job Portal',
     description: 'A comprehensive job portal built with React.js and Node.js backend, featuring job listings, applications tracking, and user profiles.',
     image: 'https://images.unsplash.com/photo-1604537466158-719b1972feb8?auto=format&fit=crop&w=800&h=500',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    githubUrl: 'https://github.com/subhash23jan',
+    technologies: ['React', 'Node.js',"TailwindCSS", 'ShadCn',"Docker","Github Actions"],
+    githubUrl: 'https://github.com/Subhash23jan/Get-Hired',
     period: '2023',
     snapshots: [
       'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&h=500',
       'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&h=500',
       'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&h=500'
     ]
+  },
+  {
+    title: 'Custom Hash Map Implementation',
+    description: 'A custom hash map built in C++ with separate chaining for collision handling. Includes both sorted and unsorted maps, with dynamic resizing and efficient data operations.',
+    image: 'https://plus.unsplash.com/premium_photo-1676150789916-2c7d1fdda6b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    technologies: ['C++', 'Data Structures', 'Hashing', 'Algorithms'],
+    githubUrl: 'https://github.com/Subhash23jan/Custom-Hash-Function',
+    period: '2024',
+    snapshots: [
+      'https://images.unsplash.com/photo-1593746360-033a41796d98?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg2OHwwfDF8c2VhcmNofDJ8fGJpbmFyeSUyMHNlYXJjaGluZ3xlbnwwfHx8fDE2ODc2MzgxMTM&ixlib=rb-1.2.1&q=80&w=1080',
+      'https://images.unsplash.com/photo-1567436912-66bfe3920d5c?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg2OHwwfDF8c2VhcmNofDJ8fGJpbmFyeSUyMG1hcHBpbmd8ZW58MHx8fHwxNjg3NTYyMzI0&ixlib=rb-1.2.1&q=80&w=1080',
+      'https://images.unsplash.com/photo-1578926125982-58f370c97c0b?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg2OHwwfDF8c2VhcmNofDcwfHxkYXRhJTIwc3RydWN0dXJlcyUyQ2NoYWluJTIwdG9vbHxlbnxlbnwwfHx8fHwxNjg3NTYyMzI0&ixlib=rb-1.2.1&q=80&w=1080'
+    ]
   }
+
+
+
 ];
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900" id="projects">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900 p-5" id="projects">
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}

@@ -14,7 +14,7 @@ function App() {
     document.title='Subhash-Portpolio'
   });
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white ">
       <Navbar />
       <Hero />
       <About />

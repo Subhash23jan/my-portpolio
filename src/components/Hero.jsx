@@ -175,23 +175,23 @@ const Hero = () => {
             </motion.div>
             
           </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex-1 relative max-w-md mr-5 xl:mr-14 "
-            >
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex-1 relative max-w-md mr-5 xl:mr-50 flex justify-end" // Added flex and justify-end to align the image to the end
+          >
             <motion.img 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              whileHover={{scale:1.1,duration:0.5}}
+              whileHover={{ scale: 1.05, duration: 0.5 }}
               viewport={{ once: true }}
               src="/assets/first_speech.jpg"
               alt="Subhash D"
-              className="rounded-lg shadow-xl w-4/5 h-4/5 max-w-md m-6"
+              className="rounded-lg shadow-xl w-full h-auto max-w-md p-10 lg:w-5/6 lg:ml-32" 
             />
           </motion.div>
+
 
         </div>
       </div>
