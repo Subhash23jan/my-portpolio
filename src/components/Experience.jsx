@@ -4,6 +4,13 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+    "title": "Software Engineering Intern",
+    "company": "Instawork",
+    "period": "January 2024 - Present",
+    "description": "Building scalable web applications using Django and ReactJS. Collaborating on React Native integration for cross-platform compatibility. Utilizing Docker for containerization and streamlined deployment.",
+    "location": "Bengaluru, India"
+  },
+  {
     title: 'Flutter UI Developer Intern',
     company: 'BrightInfonet',
     period: 'June 2024 - July 2024',
