@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-white text-gray-900 dark:text-white transition-colors duration-200;
+    @apply bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-200;
   }
 }
 
@@ -27,6 +27,42 @@
   }
 }
 
+@keyframes fire-border {
+  0% {
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 107, 53, 0.3) 20deg, rgba(255, 140, 66, 0.4) 40deg, transparent 80deg, transparent 360deg);
+  }
+  100% {
+    background: conic-gradient(from 360deg, transparent 0deg, rgba(255, 107, 53, 0.3) 20deg, rgba(255, 140, 66, 0.4) 40deg, transparent 80deg, transparent 360deg);
+  }
+}
+
+@keyframes smooth-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(107, 114, 128, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(107, 114, 128, 0.1);
+  }
+}
+
+@keyframes smooth-glow-dark {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(229, 231, 235, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(229, 231, 235, 0.1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .animate-blob {
   animation: blob 7s infinite;
 }
@@ -37,4 +73,203 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Modern hover effect */
+.modern-hover {
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(107, 114, 128, 0.2);
+}
+
+.modern-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.05), rgba(107, 114, 128, 0.1));
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.modern-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(107, 114, 128, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.modern-hover:hover::before {
+  opacity: 1;
+}
+
+.dark .modern-hover {
+  border-color: rgba(229, 231, 235, 0.2);
+}
+
+.dark .modern-hover::before {
+  background: linear-gradient(135deg, rgba(229, 231, 235, 0.05), rgba(229, 231, 235, 0.1));
+}
+
+.dark .modern-hover:hover {
+  border-color: rgba(229, 231, 235, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #374151 0%, #111827 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #6b7280 0%, #374151 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.gradient-dark {
+  background: linear-gradient(135deg, #111827 0%, #000000 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced card styles with fire border on hover and subtle border animation */
+.card-enhanced {
+  @apply bg-white dark:bg-gray-900 rounded-xl shadow-md border-2 border-gray-200 dark:border-gray-700;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-enhanced:hover {
+  @apply shadow-lg border-gray-300 dark:border-gray-600 transform -translate-y-1;
+}
+
+.card-enhanced:hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 107, 53, 0.4) 30deg, rgba(255, 140, 66, 0.6) 60deg, transparent 120deg, transparent 360deg);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: fire-border 3s linear infinite;
+  z-index: -1;
+}
+
+/* Additional fire effect classes for different card types */
+.card-hover-fire {
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card-hover-fire:hover {
+  transform: translateY(-2px);
+  border-color: rgba(107, 114, 128, 0.2);
+}
+
+.card-hover-fire:hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 107, 53, 0.4) 30deg, rgba(255, 140, 66, 0.6) 60deg, transparent 120deg, transparent 360deg);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: fire-border 3s linear infinite;
+  z-index: -1;
+}
+
+/* Enhanced hover effect for skills section */
+.skills-hover {
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(107, 114, 128, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+}
+
+
+
+.skills-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.1), rgba(107, 114, 128, 0.05));
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.skills-hover:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(107, 114, 128, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skills-hover:hover::after {
+  opacity: 1;
+}
+
+.dark .skills-hover {
+  border-color: rgba(229, 231, 235, 0.2);
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.95));
+}
+
+.dark .skills-hover::after {
+  background: linear-gradient(135deg, rgba(229, 231, 235, 0.1), rgba(229, 231, 235, 0.05));
+}
+
+.dark .skills-hover:hover {
+  border-color: rgba(229, 231, 235, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Tab styles */
+.tab-active {
+  @apply bg-gray-900 text-white border-2 border-gray-700;
+}
+
+.tab-inactive {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-2 border-transparent;
+}
+
+/* Section headers */
+.section-header {
+  @apply text-4xl font-bold text-center mb-16;
+  background: linear-gradient(135deg, #374151 0%, #111827 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .section-header {
+  background: linear-gradient(135deg, #d1d5db 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SiLeetcode } from "react-icons/si";
 import { MdOutlineDownloading } from "react-icons/md";
-import { Github, Linkedin, Mail, Code2, ArrowRight,ArrowUpCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, Code2, ArrowRight, ArrowUpCircle, Zap } from 'lucide-react';
+import { layout, animations, typography } from '../utils/theme';
 
 const AnimatedText = ({ text, staggerCount = 1 }) => {
   const words = text.split(" "); // Split text into words
@@ -43,18 +44,17 @@ const AnimatedText = ({ text, staggerCount = 1 }) => {
   );
 };
 
-
 const SocialIcon = ({ href, icon: Icon, label }) => (
   <motion.a
     href={href}
-    className="p-3 bg-white/10 dark:bg-gray-800/30 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/50 transition-all group relative"
+    className="p-3 glass rounded-xl hover:bg-white/20 dark:hover:bg-gray-800/50 transition-all group relative lightning-border"
     whileHover={{ scale: 1.1, rotate: 5 }}
     whileTap={{ scale: 0.9 }}
     target="_blank"
     rel="noopener noreferrer"
   >
     <Icon className="text-white dark:text-gray-200" size={24} />
-    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs whitespace-nowrap bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-2 py-1 rounded transition-opacity ">
+    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs whitespace-nowrap glass text-white px-2 py-1 rounded-lg transition-opacity z-10">
       {label}
     </span>
   </motion.a>
@@ -62,7 +62,7 @@ const SocialIcon = ({ href, icon: Icon, label }) => (
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-900 dark:to-purple-900">
+    <div className="relative min-h-screen flex items-center overflow-hidden gradient-primary">
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -72,13 +72,13 @@ const Hero = () => {
       
       <div className="absolute inset-0">
         <div className="relative w-full h-full">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-pink-300/70 dark:bg-pink-500/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-40 right-20 w-72 h-72 bg-yellow-300/70 dark:bg-yellow-500/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-20 left-1/2 w-72 h-72 bg-blue-300/70 dark:bg-blue-500/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-pink-300/70 dark:bg-pink-500/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob pulse-glow"></div>
+          <div className="absolute top-40 right-20 w-72 h-72 bg-yellow-300/70 dark:bg-yellow-500/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 pulse-glow"></div>
+          <div className="absolute -bottom-20 left-1/2 w-72 h-72 bg-blue-300/70 dark:bg-blue-500/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 pulse-glow"></div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16 relative">
+      <div className={`${layout.container} py-16 relative`}>
        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-0 xl:gap-0">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -90,13 +90,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="inline-block px-4 py-2 bg-white/10 dark:bg-gray-800/30 backdrop-blur-lg rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center px-4 py-2 glass rounded-full text-sm font-medium mb-6 lightning-border"
             >
               <Code2 className="inline-block w-4 h-4 mr-2" />
               Engineer who has interest in Everything
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className={`${typography.h1} mb-6`}>
               Hi, I'm <AnimatedText text="Subhash D" />
             </h1>
 
@@ -104,16 +104,14 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-xl text-gray-100 dark:text-gray-200 mb-8 leading-relaxed max-w-max font-sans whitespace-pre-wrap text-justify"
+              className={`${typography.body} text-gray-100 dark:text-gray-200 mb-8 leading-relaxed max-w-max font-sans whitespace-pre-wrap text-justify`}
             >
               <AnimatedText 
                 staggerCount={0.02}
-                text="I’m an engineering student, 2025 passout, just vibing my way through life. I’m into everything—learning, exploring, messing up, and leveling up every week. Tried out a bunch of tech stacks, can switch to anything new if needed, and solving problems is kinda my thing. Oh, and I have a terrible memory, so don’t expect me to remember much—I’m like a goldfish with a knack for tech. I fail at most things, but hey, that’s how I roll. If something’s cool enough, I can work 6-12 hours straight. See you tomorrow, but trust me, I’ll be way better than today!"
+                text="I'm an engineering student, 2025 passout, just vibing my way through life. I'm into everything—learning, exploring, messing up, and leveling up every week. Tried out a bunch of tech stacks, can switch to anything new if needed, and solving problems is kinda my thing. Oh, and I have a terrible memory, so don't expect me to remember much—I'm like a goldfish with a knack for tech. I fail at most things, but hey, that's how I roll. If something's cool enough, I can work 6-12 hours straight. See you tomorrow, but trust me, I'll be way better than today!"
               />
             </motion.div>
 
-
-            
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,7 +122,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#contact" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 rounded-lg font-medium hover:bg-opacity-90 transition-all group"
+                className="inline-flex items-center justify-center px-6 py-3 glass text-white rounded-xl font-medium hover:bg-white/20 transition-all group lightning-border"
               >
                 Get in touch
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -133,7 +131,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#projects" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-indigo-700/30 dark:bg-indigo-600/30 text-white rounded-lg font-medium hover:bg-opacity-40 transition-all border border-white/20"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white/10 dark:bg-gray-800/30 text-white rounded-xl font-medium hover:bg-white/20 transition-all border border-white/20 lightning-border"
               >
                 View Projects
               </motion.a>
@@ -165,13 +163,11 @@ const Hero = () => {
                 icon={Mail}
                 label="Email"
               />
-
               <SocialIcon 
                 href="https://drive.google.com/file/d/1DEL6n12y1grO2m93sRXuY_6GM0qjMH9m/view?usp=drive_link"
                 icon={MdOutlineDownloading}
                 label="See mY ReSume"
               />
-              
             </motion.div>
             
           </motion.div>
@@ -179,20 +175,24 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex-1 relative max-w-md mr-5 xl:mr-50 flex justify-end" // Added flex and justify-end to align the image to the end
+            className="flex-1 relative max-w-md mr-5 xl:mr-50 flex justify-end"
           >
-            <motion.img 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.05, duration: 0.5 }}
-              viewport={{ once: true }}
-              src="/assets/first_speech.jpg"
-              alt="Subhash D"
-              className="rounded-lg shadow-xl w-full h-auto max-w-md p-10 lg:w-5/6 lg:ml-32" 
-            />
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.img 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                src="/assets/first_speech.jpg"
+                alt="Subhash D"
+                className="rounded-xl shadow-2xl w-full h-auto max-w-md p-10 lg:w-5/6 lg:ml-32 lightning-border" 
+              />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-transparent via-transparent to-blue-500/20 pointer-events-none"></div>
+            </motion.div>
           </motion.div>
-
-
         </div>
       </div>
     </div>

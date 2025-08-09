@@ -7,6 +7,7 @@ export const socialLinks = {
 
 export const navLinks = [
   { label: 'About', href: '#about' },
+  { label: 'Competitive Programming', href: '#competitive-programming' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Education', href: '#education' },

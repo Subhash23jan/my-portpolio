@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Image } from 'lucide-react';
+import { Github, Image, Zap, ExternalLink } from 'lucide-react';
 import { GrGallery } from "react-icons/gr";
 import ProjectModal from './ProjectModal';
+import { layout, typography } from '../utils/theme';
 
 const projects = [
   {
@@ -57,25 +58,23 @@ const projects = [
       'https://images.unsplash.com/photo-1578926125982-58f370c97c0b?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg2OHwwfDF8c2VhcmNofDcwfHxkYXRhJTIwc3RydWN0dXJlcyUyQ2NoYWluJTIwdG9vbHxlbnxlbnwwfHx8fHwxNjg3NTYyMzI0&ixlib=rb-1.2.1&q=80&w=1080'
     ]
   }
-
-
-
 ];
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900 p-5" id="projects">
-      <div className="container mx-auto px-4">
+    <section className={`${layout.section} bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800`} id="projects">
+      <div className={layout.container}>
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white"
+          className="section-header"
         >
           Featured Projects
         </motion.h2>
+        
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -84,60 +83,77 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+              className={`${layout.card} overflow-hidden group hover:shadow-xl transition-all duration-500 card-hover-fire modern-hover`}
+              whileHover={{ y: -10 }}
             >
-              <div className="relative group">
+              <div className="relative overflow-hidden">
                 <motion.img 
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
                   <motion.button
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="hidden group-hover:flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-lg"
+                    className="flex items-center gap-2 glass text-white px-4 py-2 rounded-xl border border-white/20"
                     onClick={() => setSelectedProject(project)}
                   >
                     <Image size={20} />
                     View Snapshots
                   </motion.button>
                 </div>
+                
+                {/* Lightning effect overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
+              
               <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{project.title}</h3>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">{project.period}</span>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className={`${typography.h4} text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
+                    {project.title}
+                  </h3>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
+                    {project.period}
+                  </span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                
+                <p className={`${typography.body} text-gray-600 dark:text-gray-300 mb-4 leading-relaxed`}>
+                  {project.description}
+                </p>
+                
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
-                    <span 
+                    <motion.span 
                       key={techIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-200 rounded-full text-sm"
+                      className="px-3 py-1 gradient-primary text-white rounded-full text-sm font-medium"
+                      whileHover={{ scale: 1.05 }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
+                
                 <div className="flex items-center justify-between">
                   <motion.a 
                     whileHover={{ scale: 1.2, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
                     href={project.githubUrl}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-500"
                     target="_blank"
-                    rel="noopener noreferrer" >
+                    rel="noopener noreferrer"
+                  >
                     <Github size={20} />
                   </motion.a>
+                  
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setSelectedProject(project)}
-                    className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
                   >
                     <GrGallery size={14} />
                     Snapshots
@@ -148,6 +164,7 @@ const Projects = () => {
           ))}
         </div>
       </div>
+      
       <ProjectModal
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
