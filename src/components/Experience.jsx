@@ -7,38 +7,20 @@ const professionalExperiences = [
   {
     "title": "Software Engineer",
     "company": "Xflow Payments",
-    "period": "January 2024 - Present",
-    "description": "Developed new APIs and refactored legacy endpoints to support updated business logic. Implemented domain-driven logic for cross-border payouts, including time zone–sensitive scheduling and status updates. Refactored hardcoded validation logic into YAML-driven repositories for better maintainability. Worked extensively with SQL databases and Protocol Buffers (Protobuf) for reliable data exchange and persistence.",
+    "period": "April 2025 - Present",
+    "description": "Developed new APIs and refactored legacy endpoints to support updated business logic. Implemented domain-driven logic for cross-border payouts, including time zone–sensitive scheduling and status updates. Refactored hardcoded validation logic (e.g., IFSC checks) into YAML-driven repositories for better maintainability. Worked extensively with SQL databases and Protocol Buffers (Protobuf) for reliable data exchange and persistence.",
     "location": "Bengaluru, India",
     "type": "professional",
     "tools": ["Spring Boot", "Armeria", "Java", "SQL", "Protobuf"]
   },
   {
-    title: 'Software Engineer',
+    title: 'Software Engineering Intern',
     company: 'Instawork',
-    period: 'June 2024 - July 2024',
-    description: 'Developed scalable backend APIs using Django and fixed bugs in the repository. Integrated custom bots with APIs to streamline operations and enhance efficiency. Built and deployed AI agents using Langchain to automate workflows and implement AI agent routing, reducing manual tickets by 15%.',
+    period: 'January 2025 - April 2025',
+    description: 'Developed scalable backend APIs using Django and fixed bugs in the repository. Automated processes with AI agents, decreasing manual tickets by 15%. Integrated custom bots with APIs to streamline workflows and enhance efficiency.',
     location: 'Bengaluru, India',
     type: 'professional',
-    tools: ["Django", "REST APIs", "Python", "Langchain", "Automation Bots"]
-  },
-  {
-    title: 'Open Source Contributor',
-    company: 'Girl-Script Summer of Code',
-    period: 'May 2024 - July 2024',
-    description: 'Implemented routing with Express.js, enhancing server-side navigation and API flow. Identified and fixed 25+ bugs, significantly improving stability and usability. Enhanced UI/UX of Flutter application for a seamless user experience. Worked with MongoDB and SQLite for effective backend data management. Contributed to React.js frontend by improving responsiveness and state handling.',
-    location: 'Remote',
-    type: 'professional',
-    tools: ["Express.js", "MongoDB", "SQLite", "React.js", "Flutter"]
-  },
-  {
-    title: 'Flutter UI Developer Intern',
-    company: 'BrightInfonet',
-    period: 'June 2024 - July 2024',
-    description: 'Collaborated with a team of 5 to manage application development, resulting in a responsive and visually appealing mobile application. Designed and implemented responsive UI elements, improving compatibility across devices by 30%.',
-    location: 'Remote',
-    type: 'professional',
-    tools: ["Flutter", "UI/UX Design", "Mobile Development"]
+    tools: ["Django", "REST APIs", "Python", "Automation Bots"]
   },
   {
     title: 'Flutter Developer Intern',
@@ -160,21 +142,23 @@ const Experience = () => {
               <motion.div 
                 key={`${activeTab}-${index}`} 
                 variants={item}
-                className="relative pl-8 pb-12"
+                className={activeTab === 'professional' ? "relative pl-8 pb-12" : "pb-8"}
               >
-                {index !== experiences.length - 1 && (
+                {/* Timeline for professional experiences only */}
+                {activeTab === 'professional' && index !== experiences.length - 1 && (
                   <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-gray-600 to-gray-800 dark:from-gray-400 dark:to-gray-200" />
                 )}
-                <div className="absolute left-0 top-0 w-8 h-8 gradient-primary rounded-full flex items-center justify-center border-2 border-gray-300 dark:border-gray-600">
-                  {activeTab === 'professional' ? (
+                
+                {/* Timeline dots for professional experiences only */}
+                {activeTab === 'professional' && (
+                  <div className="absolute left-0 top-0 w-8 h-8 gradient-primary rounded-full flex items-center justify-center border-2 border-gray-300 dark:border-gray-600">
                     <Building size={16} className="text-white" />
-                  ) : (
-                    <Users size={16} className="text-white" />
-                  )}
-                </div>
+                  </div>
+                )}
+                
                 <motion.div 
                   whileHover={{ scale: 1.02, y: -5 }}
-                  className={`${layout.card} ml-4 relative overflow-hidden group card-hover-fire modern-hover`}
+                  className={`${layout.card} ${activeTab === 'professional' ? 'ml-4' : ''} relative overflow-hidden group card-hover-fire modern-hover`}
                 >
                   <div className="relative z-10">
                     <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">

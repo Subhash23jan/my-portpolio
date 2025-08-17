@@ -10,43 +10,18 @@ const About = () => {
   const skillCategories = [
     {
       icon: <Code2 className="w-6 h-6" />,
-      title: 'Programming Languages',
-      skills: ['C', 'C++', 'Java', 'JavaScript', 'TypeScript', 'Python (basic)'],
-    },
-    {
-      icon: <Globe className="w-6 h-6" />,
-      title: 'Frameworks & Web',
-      skills: ['Flutter', 'Node.js', 'React', 'Spring Boot', 'Armeria', 'Express.js', 'Tailwind CSS', 'HTML', 'CSS'],
+      title: 'Programming & Development',
+      skills: ['Java', 'C++', 'JavaScript', 'Python', 'Flutter', 'React', 'Spring Boot', 'Node.js'],
     },
     {
       icon: <Database className="w-6 h-6" />,
-      title: 'Databases',
-      skills: ['SQL (MySQL, PostgreSQL)', 'MongoDB', 'SQLite', 'Firebase', 'NoSQL concepts', 'DSL contexts'],
-    },
-    {
-      icon: <GitBranch className="w-6 h-6" />,
-      title: 'Development Tools',
-      skills: ['Git', 'GitHub', 'GitHub Actions', 'Docker', 'Maven', 'Gradle', 'VS Code', 'IntelliJ IDEA'],
-    },
-    {
-      icon: <Book className="w-6 h-6" />,
-      title: 'Core Subjects',
-      skills: ['Data Structures & Algorithms', 'Operating Systems', 'Networking', 'Databases', 'Low-Level Design', 'Object-Oriented Programming'],
-    },
-    {
-      icon: <Wrench className="w-6 h-6" />,
-      title: 'Testing & Quality',
-      skills: ['JUnit (including parameterized tests)', 'Mocking', 'Spotless plugin', 'Clean Code practices'],
+      title: 'Databases & Tools',
+      skills: ['SQL', 'MongoDB', 'Git', 'Docker', 'JUnit', 'DDD', 'REST APIs'],
     },
     {
       icon: <Sparkles className="w-6 h-6" />,
-      title: 'Cloud & DevOps Basics',
-      skills: ['CI/CD pipelines', 'Containerization with Docker'],
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: 'Miscellaneous',
-      skills: ['Problem-Solving', 'REST APIs', 'Domain-Driven Design (DDD)', 'RLHF (Reinforcement Learning from Human Feedback)', 'Timezone-aware programming', 'Debugging & Refactoring techniques'],
+      title: 'Core Skills',
+      skills: ['Data Structures & Algorithms', 'Problem Solving', 'System Design', 'Clean Code', 'Testing'],
     },
     ];
 
@@ -72,26 +47,39 @@ const About = () => {
             >
               <div className="relative mb-8">
                 <motion.div
-                  className="relative"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
+                  className="relative perspective-1000"
+                  whileHover={{ 
+                    rotateY: 5,
+                    rotateX: 5,
+                    scale: 1.02,
+                    transition: { duration: 0.4 }
+                  }}
+                  style={{ transformStyle: 'preserve-3d' }}
                 >
                   <motion.img
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                    whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.8, type: "spring" }}
                     src="/assets/my_images/batman.jpg"
                     alt="Subhash D"
-                    className="rounded-xl shadow-xl w-full max-w-md border-2 border-gray-200 dark:border-gray-700"
+                    className="rounded-xl shadow-2xl w-full max-w-md border-2 border-gray-200 dark:border-gray-700"
+                    style={{ transformStyle: 'preserve-3d' }}
                   />
-                  <div className="absolute -bottom-4 -right-4 w-full h-full bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl -z-10 opacity-20"></div>
+                  <div className="absolute -bottom-6 -right-6 w-full h-full bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl -z-10 opacity-30 blur-sm"></div>
+                  <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl -z-20 opacity-20 blur-md"></div>
                 </motion.div>
               </div>
               
               <motion.div 
-                className={`${layout.card} text-center modern-hover card-hover-fire`}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
+                className={`${layout.card} text-center modern-hover card-hover-fire relative overflow-hidden`}
+                whileHover={{ 
+                  y: -8,
+                  rotateY: 2,
+                  rotateX: 1,
+                  transition: { duration: 0.4 }
+                }}
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 {!clicked ? (
                   <>
@@ -181,29 +169,59 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
-              <h3 className={`${typography.h3} mb-6`}>Skills & Expertise</h3>
-              <div className="grid gap-6">
+              <motion.h3 
+                className={`${typography.h3} mb-8 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent font-['Inter']`}
+                whileHover={{ scale: 1.05 }}
+              >
+                Skills & Expertise
+              </motion.h3>
+              <div className="grid gap-8">
                 {skillCategories.map((category, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 30, rotateX: -15 }}
+                    whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className={`${layout.card} hover:shadow-xl transition-all duration-300 skills-hover group card-hover-fire`}
+                    transition={{ 
+                      delay: index * 0.2,
+                      duration: 0.6,
+                      type: "spring"
+                    }}
+                    className={`${layout.card} hover:shadow-2xl transition-all duration-500 skills-hover group card-hover-fire relative overflow-hidden`}
+                    whileHover={{ 
+                      y: -10,
+                      rotateY: 3,
+                      rotateX: 2,
+                      scale: 1.02,
+                      transition: { duration: 0.4 }
+                    }}
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 gradient-primary rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-center gap-4 mb-6">
+                      <motion.div 
+                        className="p-4 gradient-primary rounded-xl text-white group-hover:scale-110 transition-transform duration-300 shadow-lg"
+                        whileHover={{ rotateY: 15, rotateX: 5 }}
+                        style={{ transformStyle: 'preserve-3d' }}
+                      >
                         {category.icon}
-                      </div>
-                      <h4 className={`${typography.h4} text-gray-900 dark:text-white`}>{category.title}</h4>
+                      </motion.div>
+                      <h4 className={`${typography.h4} text-gray-900 dark:text-white font-['Inter'] font-bold`}>{category.title}</h4>
                     </div>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-3">
                       {category.skills.map((skill, skillIndex) => (
                         <motion.span
                           key={skillIndex}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-300"
-                          whileHover={{ scale: 1.05 }}
+                          className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full text-sm font-bold font-['Inter'] tracking-wide shadow-lg"
+                          whileHover={{ 
+                            scale: 1.1, 
+                            y: -3,
+                            rotateY: 10,
+                            transition: { duration: 0.3 }
+                          }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: skillIndex * 0.1 + index * 0.2 }}
+                          style={{ transformStyle: 'preserve-3d' }}
                         >
                           {skill}
                         </motion.span>
