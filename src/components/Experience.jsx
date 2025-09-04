@@ -34,24 +34,24 @@ const professionalExperiences = [
 ];
 
 const freelanceExperiences = [
-  {
-    title: 'AI Evaluator & Code Reviewer',
-    company: 'Freelance (Remote)',
-    period: 'March 2024 - Present',
-    description: 'Evaluated and optimized 150+ code-based LLM responses across multiple tech stacks including C++, Python, Java, JavaScript, HTML, and CSS. Provided in-depth code reviews and human-aligned feedback to enhance LLM accuracy and relevance. Applied Reinforcement Learning from Human Feedback (RLHF) techniques to fine-tune model behavior. Maintained a consistent quality rating of 4.6/5 for task performance and review depth.',
-    location: 'Remote',
-    type: 'freelance',
-    tools: ["Prompt Engineering", "LLM Evaluation", "RLHF", "Python"]
-  },
-  {
-    title: 'Frontend Developer',
-    company: 'Confidential',
-    period: 'March 2024 - May 2024',
-    description: 'Developed responsive applications using flutter and dart. Implemented modern UI/UX designs and optimized performance. Collaborated with design team to create seamless user experiences.',
-    location: 'Remote',
-    type: 'freelance',
-    tools: ["Flutter", "Dart", "UI/UX Design"]
-  }
+  // {
+  //   title: 'AI Evaluator & Code Reviewer',
+  //   company: 'Freelance (Remote)',
+  //   period: 'March 2024 - Present',
+  //   description: 'Evaluated and optimized 150+ code-based LLM responses across multiple tech stacks including C++, Python, Java, JavaScript, HTML, and CSS. Provided in-depth code reviews and human-aligned feedback to enhance LLM accuracy and relevance. Applied Reinforcement Learning from Human Feedback (RLHF) techniques to fine-tune model behavior. Maintained a consistent quality rating of 4.6/5 for task performance and review depth.',
+  //   location: 'Remote',
+  //   type: 'freelance',
+  //   tools: ["Prompt Engineering", "LLM Evaluation", "RLHF", "Python"]
+  // },
+  // {
+  //   title: 'Frontend Developer',
+  //   company: 'Confidential',
+  //   period: 'March 2024 - May 2024',
+  //   description: 'Developed responsive applications using flutter and dart. Implemented modern UI/UX designs and optimized performance. Collaborated with design team to create seamless user experiences.',
+  //   location: 'Remote',
+  //   type: 'freelance',
+  //   tools: ["Flutter", "Dart", "UI/UX Design"]
+  // }
 ];
 
 const container = {
