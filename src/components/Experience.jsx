@@ -7,20 +7,38 @@ const professionalExperiences = [
   {
     "title": "Software Engineer",
     "company": "Xflow Payments",
-    "period": "April 2025 - Present",
-    "description": "Developed new APIs and refactored legacy endpoints to support updated business logic. Implemented domain-driven logic for cross-border payouts, including time zone–sensitive scheduling and status updates. Refactored hardcoded validation logic (e.g., IFSC checks) into YAML-driven repositories for better maintainability. Worked extensively with SQL databases and Protocol Buffers (Protobuf) for reliable data exchange and persistence.",
+    "period": "January 2024 - Present",
+    "description": "Developed new APIs and refactored legacy endpoints to support updated business logic. Implemented domain-driven logic for cross-border payouts, including time zone–sensitive scheduling and status updates. Refactored hardcoded validation logic into YAML-driven repositories for better maintainability. Worked extensively with SQL databases and Protocol Buffers (Protobuf) for reliable data exchange and persistence.",
     "location": "Bengaluru, India",
     "type": "professional",
     "tools": ["Spring Boot", "Armeria", "Java", "SQL", "Protobuf"]
   },
   {
-    title: 'Software Engineering Intern',
+    title: 'Software Engineer',
     company: 'Instawork',
-    period: 'January 2025 - April 2025',
-    description: 'Developed scalable backend APIs using Django and fixed bugs in the repository. Automated processes with AI agents, decreasing manual tickets by 15%. Integrated custom bots with APIs to streamline workflows and enhance efficiency.',
+    period: 'June 2024 - July 2024',
+    description: 'Developed scalable backend APIs using Django and fixed bugs in the repository. Integrated custom bots with APIs to streamline operations and enhance efficiency. Built and deployed AI agents using Langchain to automate workflows and implement AI agent routing, reducing manual tickets by 15%.',
     location: 'Bengaluru, India',
     type: 'professional',
-    tools: ["Django", "REST APIs", "Python", "Automation Bots"]
+    tools: ["Django", "REST APIs", "Python", "Langchain", "Automation Bots"]
+  },
+  {
+    title: 'Open Source Contributor',
+    company: 'Girl-Script Summer of Code',
+    period: 'May 2024 - July 2024',
+    description: 'Implemented routing with Express.js, enhancing server-side navigation and API flow. Identified and fixed 25+ bugs, significantly improving stability and usability. Enhanced UI/UX of Flutter application for a seamless user experience. Worked with MongoDB and SQLite for effective backend data management. Contributed to React.js frontend by improving responsiveness and state handling.',
+    location: 'Remote',
+    type: 'professional',
+    tools: ["Express.js", "MongoDB", "SQLite", "React.js", "Flutter"]
+  },
+  {
+    title: 'Flutter UI Developer Intern',
+    company: 'BrightInfonet',
+    period: 'June 2024 - July 2024',
+    description: 'Collaborated with a team of 5 to manage application development, resulting in a responsive and visually appealing mobile application. Designed and implemented responsive UI elements, improving compatibility across devices by 30%.',
+    location: 'Remote',
+    type: 'professional',
+    tools: ["Flutter", "UI/UX Design", "Mobile Development"]
   },
   {
     title: 'Flutter Developer Intern',
@@ -34,24 +52,24 @@ const professionalExperiences = [
 ];
 
 const freelanceExperiences = [
-  // {
-  //   title: 'AI Evaluator & Code Reviewer',
-  //   company: 'Freelance (Remote)',
-  //   period: 'March 2024 - Present',
-  //   description: 'Evaluated and optimized 150+ code-based LLM responses across multiple tech stacks including C++, Python, Java, JavaScript, HTML, and CSS. Provided in-depth code reviews and human-aligned feedback to enhance LLM accuracy and relevance. Applied Reinforcement Learning from Human Feedback (RLHF) techniques to fine-tune model behavior. Maintained a consistent quality rating of 4.6/5 for task performance and review depth.',
-  //   location: 'Remote',
-  //   type: 'freelance',
-  //   tools: ["Prompt Engineering", "LLM Evaluation", "RLHF", "Python"]
-  // },
-  // {
-  //   title: 'Frontend Developer',
-  //   company: 'Confidential',
-  //   period: 'March 2024 - May 2024',
-  //   description: 'Developed responsive applications using flutter and dart. Implemented modern UI/UX designs and optimized performance. Collaborated with design team to create seamless user experiences.',
-  //   location: 'Remote',
-  //   type: 'freelance',
-  //   tools: ["Flutter", "Dart", "UI/UX Design"]
-  // }
+  {
+    title: 'AI Evaluator & Code Reviewer',
+    company: 'Freelance (Remote)',
+    period: 'March 2024 - Present',
+    description: 'Evaluated and optimized 150+ code-based LLM responses across multiple tech stacks including C++, Python, Java, JavaScript, HTML, and CSS. Provided in-depth code reviews and human-aligned feedback to enhance LLM accuracy and relevance. Applied Reinforcement Learning from Human Feedback (RLHF) techniques to fine-tune model behavior. Maintained a consistent quality rating of 4.6/5 for task performance and review depth.',
+    location: 'Remote',
+    type: 'freelance',
+    tools: ["Prompt Engineering", "LLM Evaluation", "RLHF", "Python"]
+  },
+  {
+    title: 'Frontend Developer',
+    company: 'Confidential',
+    period: 'March 2024 - May 2024',
+    description: 'Developed responsive applications using flutter and dart. Implemented modern UI/UX designs and optimized performance. Collaborated with design team to create seamless user experiences.',
+    location: 'Remote',
+    type: 'freelance',
+    tools: ["Flutter", "Dart", "UI/UX Design"]
+  }
 ];
 
 const container = {
@@ -112,7 +130,8 @@ const Experience = () => {
               <Building size={18} />
               Professional
             </motion.button>
-            <motion.button
+            {/* Temporarily hidden freelance tab */}
+            {/* <motion.button
               onClick={() => setActiveTab('freelance')}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeTab === 'freelance' 
@@ -124,7 +143,7 @@ const Experience = () => {
             >
               <Users size={18} />
               Freelance
-            </motion.button>
+            </motion.button> */}
           </div>
         </motion.div>
 
@@ -142,23 +161,21 @@ const Experience = () => {
               <motion.div 
                 key={`${activeTab}-${index}`} 
                 variants={item}
-                className={activeTab === 'professional' ? "relative pl-8 pb-12" : "pb-8"}
+                className="relative pl-8 pb-12"
               >
-                {/* Timeline for professional experiences only */}
-                {activeTab === 'professional' && index !== experiences.length - 1 && (
+                {index !== experiences.length - 1 && (
                   <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-gray-600 to-gray-800 dark:from-gray-400 dark:to-gray-200" />
                 )}
-                
-                {/* Timeline dots for professional experiences only */}
-                {activeTab === 'professional' && (
-                  <div className="absolute left-0 top-0 w-8 h-8 gradient-primary rounded-full flex items-center justify-center border-2 border-gray-300 dark:border-gray-600">
+                <div className="absolute left-0 top-0 w-8 h-8 gradient-primary rounded-full flex items-center justify-center border-2 border-gray-300 dark:border-gray-600">
+                  {activeTab === 'professional' ? (
                     <Building size={16} className="text-white" />
-                  </div>
-                )}
-                
+                  ) : (
+                    <Users size={16} className="text-white" />
+                  )}
+                </div>
                 <motion.div 
                   whileHover={{ scale: 1.02, y: -5 }}
-                  className={`${layout.card} ${activeTab === 'professional' ? 'ml-4' : ''} relative overflow-hidden group card-hover-fire modern-hover`}
+                  className={`${layout.card} ml-4 relative overflow-hidden group card-hover-fire modern-hover`}
                 >
                   <div className="relative z-10">
                     <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">
