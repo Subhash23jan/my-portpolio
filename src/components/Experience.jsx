@@ -7,16 +7,16 @@ const professionalExperiences = [
   {
     "title": "Software Engineer",
     "company": "Xflow Payments",
-    "period": "January 2024 - Present",
-    "description": "Developed new APIs and refactored legacy endpoints to support updated business logic. Implemented domain-driven logic for cross-border payouts, including time zone–sensitive scheduling and status updates. Refactored hardcoded validation logic into YAML-driven repositories for better maintainability. Worked extensively with SQL databases and Protocol Buffers (Protobuf) for reliable data exchange and persistence.",
+    "period": "June 2025 - Present",
+    "description": "working on many things to make cross-border payment easier",
     "location": "Bengaluru, India",
     "type": "professional",
     "tools": ["Spring Boot", "Armeria", "Java", "SQL", "Protobuf"]
   },
   {
-    title: 'Software Engineer',
+    title: 'Software Engineer Intern',
     company: 'Instawork',
-    period: 'June 2024 - July 2024',
+    period: 'Jan 2025 - March 2025',
     description: 'Developed scalable backend APIs using Django and fixed bugs in the repository. Integrated custom bots with APIs to streamline operations and enhance efficiency. Built and deployed AI agents using Langchain to automate workflows and implement AI agent routing, reducing manual tickets by 15%.',
     location: 'Bengaluru, India',
     type: 'professional',
@@ -44,7 +44,7 @@ const professionalExperiences = [
     title: 'Flutter Developer Intern',
     company: 'Rablo',
     period: 'April 2024 - June 2024',
-    description: 'Developed scalable apps with faster performance with improvements over 12%. Integrated backend (Node.js, MongoDB), reducing loading time. Streamlined data handling for efficient database operations.',
+    description: 'Developed scalable apps with faster performance, with improvements over 12%. Integrated backend (Node.js, MongoDB), reducing loading time. Streamlined data handling for efficient database operations.',
     location: 'Noida, India',
     type: 'professional',
     tools: ["Flutter", "Node.js", "MongoDB", "REST APIs"]
