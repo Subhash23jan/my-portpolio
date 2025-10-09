@@ -11,7 +11,7 @@ const professionalExperiences = [
     "description": "working on many things to make cross-border payment easier",
     "location": "Bengaluru, India",
     "type": "professional",
-    "tools": ["Spring Boot", "Armeria", "Java", "SQL", "Protobuf"]
+    "tools": ["Spring Boot", "Armeria", "Java", "SQL", "Protobuf", "Kafka", "Kubernetes"]
   },
   {
     title: 'Software Engineer Intern',
